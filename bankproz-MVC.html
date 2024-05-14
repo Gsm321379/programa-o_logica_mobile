@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco da Proz Bank</title>
+</head>
+
+<body>
+  <h1>Banking Proz System</h1>
+  <p>Saldo Atual: <span id="balance">R$0.00</span></p>
+
+  <label>Selecione o tipo de Serviço:</label>
+
+  <select id="transactionType">
+    <option value="depositarDinheiro">Depósito</option>
+    <option value="retirarValor">Saque de Conta</option>
+    <option value="consultarValor">Saldo em Conta</option>
+  </select>
+
+  <button onclick="processTransaction()">iniciar</button>
+
+  <script>
+    var balance = 0;
+
+    function processTransaction() {
+      var type = document.getElementById("transactionType").value;
+      var amount = 0;
+
+      if (type === "depositarDinheiro" || type === "retirarValor") {
+        amount = parseFloat(prompt("Insira o valor da transação:"));
+        if (isNaN(amount)) {
+          alert("Por favor, insira um valor numérico válido.");
+          return;
+        }
+
+        //function deposit() {
+        function depositarDinheiro() {
+
+          var amount = prompt("Faça um Depósito na sua Conta:");
+          balance += parseFloat(amount);
+          updateBalance();
+        }
+
+        function retirarValor() {
+          var amount = prompt("Quanto quer retirar da sua Conta:");
+          balance -= parseFloat(amount);
+          updateBalance();
+        }
+
+        function consultarValor() {
+          alert("Your current balance is: $" + balance.toFixed(2));
+        }
+
+        function updateBalance() {
+          document.getElementById("balance").innerHTML = "$" + balance.toFixed(2);
+        }
+
+
+      }
+      switch (type) {
+        case "depositarDinheiro":
+        depositarDinheiro(amount);
+          break;
+        case "retirarValor":
+        retirarValor(amount);
+          break;
+        case "consultarValor":
+        consultarValor();
+          break;
+        default:
+          alert("Sistema não realiza esse serviço 💥");
+      }
+    }
+  </script>
+</body>
+
+</html>
