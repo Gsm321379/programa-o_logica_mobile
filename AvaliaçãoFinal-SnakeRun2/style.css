@@ -1,0 +1,23 @@
+@charset "UTF-08";
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: rgba(2, 2, 2, 0.829);
+    background-image: url('jogo.jpeg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    /*display: flex;*/
+}
+
+
+h1{
+    font-size: 2em;
+
+}
+
+canvas{
+    border: 10px solid rgb(160, 6, 6);
+    background-color: rgb(9, 3, 92);
+}
